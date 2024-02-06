@@ -1,0 +1,20 @@
+{
+  "expo": {
+    "name": "deliveroo",
+    "slug": "deliveroo",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "android": {
+      "package": "com.anonymous.deliveroo"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "1170d20a-3c26-44c1-a6d2-cb6cf37f40bb"
+      }
+    },
+    "owner": "nikhil77"
+  },
+  "name": "deliveroo"
+}
