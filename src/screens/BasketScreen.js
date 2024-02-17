@@ -133,7 +133,7 @@ const BasketScreen = () => {
             </View>
             <View className='p-5 mt-2 bg-white'>
                 <Text className='text-[#00CCBB] font-extrabold text-3xl text-center '>
-                    DELIVEROO
+                            Speedy Eats
                 </Text>
             </View>
 

@@ -57,7 +57,7 @@ const SignUpPage = () => {
 
                 {/* Welcome tag line */}
                 <Text className='text-gray-400 font-bold text-center pb-2'>
-                    Welcome to <Text className='text-[#00CCBB]'>Deliveroo</Text> Exciting tastes await, just a click away
+                    Welcome to <Text className='text-[#00CCBB]'>Speedy Eats</Text> Exciting tastes await, just a click away
                 </Text>
                 {/* Logo */}
                 <Image source={require('../../assets/images/delivery.jpg')} className='h-72 w-72 rounded-full ' />
