@@ -23,7 +23,7 @@ Speedy Eats is a food delivery application that aims to provide users with a sea
 - Clone the repository: `git clone <repository_url>`
 - Navigate to the backend directory: `cd backend`
 - Install backend dependencies: `npm install`
-- Start the backend server: npm start
+- Start the backend server: `npm start`
 - Navigate to the frontend directory: `cd ../frontend`
 - Install frontend dependencies: `npm install`
 - Start the frontend development server: `npm start`
@@ -39,9 +39,9 @@ Speedy Eats is a food delivery application that aims to provide users with a sea
 
 ### Fork the repository.
 
-- Create a new branch (git checkout -b feature/your-feature-name).
-- Commit your changes (git commit -am 'Add new feature').
-- Push to the branch (git push origin feature/your-feature-name).
+- Create a new branch `(git checkout -b feature/your-feature-name)`.
+- Commit your changes `(git commit -am 'Add new feature')`.
+- Push to the branch `(git push origin feature/your-feature-name)`.
 - Create a new Pull Request.
 
 
