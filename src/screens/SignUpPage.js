@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
 import ErrorModal from '../components/ErrorModal'
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { localHost } from '../../helper';
 
 const SignUpPage = () => {
     const navigation = useNavigation()
@@ -20,7 +21,7 @@ const SignUpPage = () => {
 
         try {
             // posting the data using axios 
-            const response = await axios.post(`http://192.168.67.197:5001/api/users/signup`, {
+            const response = await axios.post(`http://${localHost}/api/users/signup`, {
                 userName, phone, password
             })
             // console.log(response);

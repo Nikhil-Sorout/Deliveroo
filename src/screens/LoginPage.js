@@ -1,11 +1,12 @@
 import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { ChevronRightIcon } from 'react-native-heroicons/solid'
 import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
 import ErrorModal from '../components/ErrorModal';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { localHost } from '../../helper';
 
 
 const LoginPage = () => {
@@ -14,11 +15,23 @@ const LoginPage = () => {
     const [phone, setPhone] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState(null)
+    const [auth, setAuth] = useState(false);
+
+    useEffect(()=>{
+        const checkAuth = async()=>{
+            const token = await AsyncStorage.getItem('userToken');
+            if(token != null)
+            {
+                setAuth(true);
+            }
+        }
+        checkAuth();
+    },[])
 
     const handleLogin = async () => {
         // setIsPressed(!isPressed);
         try {
-            const response = await axios.post(`http://192.168.67.197:5001/api/users/login`, { phone, password });
+            const response = await axios.post(`http://${localHost}/api/users/login`, { phone, password });
             console.log("Data posted successfully");
 
 
@@ -51,6 +64,10 @@ const LoginPage = () => {
     const closeModal = () => {
         // setIsPressed(!isPressed);
         setError(null);
+    }
+    if(auth)
+    {
+        navigation.navigate('HomeScreen')
     }
     return (
         <SafeAreaView className='flex-1 bg-white'>

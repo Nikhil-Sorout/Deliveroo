@@ -9,12 +9,12 @@
     "android": {
       "package": "com.anonymous.deliveroo"
     },
+    "owner": "nikhil77",
     "extra": {
       "eas": {
-        "projectId": "1170d20a-3c26-44c1-a6d2-cb6cf37f40bb"
+        "projectId": "f8c78bc1-9e40-4c36-9028-7b97ded9a4da"
       }
-    },
-    "owner": "nikhil77"
+    }
   },
   "name": "deliveroo"
 }

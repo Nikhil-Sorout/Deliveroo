@@ -11,6 +11,7 @@ import axios from 'axios'
 import SearchModal from '../components/SearchModal'
 import { ArrowRightCircleIcon } from 'react-native-heroicons/solid'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { localHost } from '../../helper'
 
 const HomeScreen = () => {
   const [error, setError] = useState(null);
@@ -32,7 +33,7 @@ const HomeScreen = () => {
     setPressed(!pressed);
     // const searchQuery = qs.stringify({search});
     try {
-      const response = await axios.get(`http://192.168.67.51:5001/api/search/restaurants?query=${search}`)
+      const response = await axios.get(`http://${localHost}/api/search/restaurants?query=${search}`)
       console.log("Posted successfully");
       if (response.status == 201) {
         // storing the fetched data

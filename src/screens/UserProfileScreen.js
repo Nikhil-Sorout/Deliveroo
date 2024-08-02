@@ -5,6 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useNavigation } from '@react-navigation/native'
 import { ArrowLeftCircleIcon } from 'react-native-heroicons/outline'
 import axios from 'axios';
+import { localHost } from '../../helper'
 const UserProfileScreen = () => {
 
     const [userName, setUserName] = useState('');
@@ -14,7 +15,7 @@ const UserProfileScreen = () => {
         (async () => {
             try {
                 const number = await AsyncStorage.getItem('userPhone');
-                const response = await axios.get(`http://192.168.67.51:5001/api/users/info?query=${number}`);
+                const response = await axios.get(`http://${localHost}/api/users/info?query=${number}`);
                 const name = response.data.userName;
                 setUserName(name);
                 console.log(userName);
