@@ -3,6 +3,7 @@
     "name": "deliveroo",
     "slug": "deliveroo",
     "version": "1.0.0",
+    "newArchEnabled": true,
     "assetBundlePatterns": [
       "**/*"
     ],

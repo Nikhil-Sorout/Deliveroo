@@ -48,8 +48,10 @@ const UserProfileScreen = () => {
     const navigation = useNavigation();
 
     const handleLogOut = async () => {
-        console.log('discarded token successfully', await AsyncStorage.getItem('userToken'))
-        await AsyncStorage.removeItem('userToken');
+        const token = await AsyncStorage.getItem('userToken')
+        console.log('discarded token successfully', token)
+        await AsyncStorage.removeItem('userToken')
+        console.log(AsyncStorage.getItem('userToken'));
         navigation.navigate('LoginPage');
     }
 

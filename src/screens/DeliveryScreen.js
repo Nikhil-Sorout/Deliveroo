@@ -8,6 +8,7 @@ import { XMarkIcon } from 'react-native-heroicons/solid'
 import { TouchableOpacity } from 'react-native'
 import * as Progress from 'react-native-progress'
 import MapView from 'react-native-maps'
+
 const DeliveryScreen = () => {
   const navigation = useNavigation();
   const restaurant = useSelector(selectResturant);
@@ -53,14 +54,14 @@ const DeliveryScreen = () => {
         </View>
       </SafeAreaView>
       <MapView
-        // initialRegion={{
-        //   latitude: restaurant.lat,
-        //   longitude: restaurant.long,
-        //   latitudeDelta: 0.005,
-        //   longitudeDelta: 0.005
-        // }}
+        initialRegion={{
+          latitude: restaurant?.lat || 37.78825, // Default fallback latitude
+          longitude: restaurant?.long || -122.4324,
+          latitudeDelta: 0.005,
+          longitudeDelta: 0.005
+        }}
         className='flex-1 -mt-10 z-0'
-        mapType='mutedStandard'
+        mapType='standard'
       ></MapView>
       <View className='flex-row bg-white space-x-5 py-4 items-center'>
         <Image

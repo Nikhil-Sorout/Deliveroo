@@ -127,13 +127,13 @@ const BasketScreen = () => {
                         </IntlProvider>
                     </Text>
                 </View>
-                <TouchableOpacity className='rounded-lg bg-[#00CCBB] p-4' onPress={() => { navigation.navigate('PreparingOrderScreen') }}>
+                <TouchableOpacity className='rounded-lg bg-[#00CCBB] p-4' onPress={() => { navigation.navigate('Delivery') }}>
                     <Text className='text-center text-white text-lg font-bold'>Place Order</Text>
                 </TouchableOpacity>
             </View>
             <View className='p-5 mt-2 bg-white'>
                 <Text className='text-[#00CCBB] font-extrabold text-3xl text-center '>
-                            Speedy Eats
+                            Snap Savor
                 </Text>
             </View>
 

@@ -4,7 +4,7 @@ import { urlFor } from '../../sanity'
 import sanityClient from '../../sanity'
 import { useNavigation } from '@react-navigation/native'
 
-const CategoryCard = (props) => {
+const  CategoryCard = (props) => {
     const navigation = useNavigation();
     const [data, setData] = useState([]);
     const { imgUrl, title } = props

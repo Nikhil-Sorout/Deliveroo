@@ -20,6 +20,7 @@ const SignUpPage = () => {
     const handleSignUp = async () => {
 
         try {
+            console.log('processing')
             // posting the data using axios 
             const response = await axios.post(`http://${localHost}/api/users/signup`, {
                 userName, phone, password
@@ -49,7 +50,7 @@ const SignUpPage = () => {
     }
     // console.log(password);
     return (
-        <SafeAreaView className='flex-1 bg-white'>
+        <SafeAreaView className='flex-1 p-2 bg-white'>
 
             {/* Error Modal component */}
             <ErrorModal visible={error !== null} errorMessage={error} onClose={closeModal} />
@@ -58,11 +59,11 @@ const SignUpPage = () => {
 
                 {/* Welcome tag line */}
                 <Text className='text-gray-400 font-bold text-center pb-2'>
-                    Welcome to <Text className='text-[#00CCBB]'>Speedy Eats</Text> Exciting tastes await, just a click away
+                    Welcome to <Text className='text-[#00CCBB]'>Snap Savor</Text> Exciting tastes await, just a click away
                 </Text>
                 {/* Logo */}
-                <Image source={require('../../assets/images/delivery.jpg')} className='h-72 w-72 rounded-full ' />
-                <Text className='text-[#00CCBB] font-bold text-4xl'>Sign Up</Text>
+                <Image source={require('../../assets/images/delivery.jpg')} className='h-60 w-60 rounded-full ' />
+                <Text className='text-[#00CCBB] font-bold text-3xl'>Sign Up</Text>
 
                 {/* Username input field */}
                 <View className={`rounded-md p-2 box-border border-[#00CCBB] border-2 w-72 mt-4`}>
@@ -80,7 +81,7 @@ const SignUpPage = () => {
                 </View>
 
                 {/* Let's go button to post the data */}
-                <TouchableOpacity onPress={handleSignUp} disabled={isPressed} className={`mt-4 bg-${isPressed ? 'white' : '[#00CCBB]'} w-32 p-2 mb-10 rounded-lg`}>
+                <TouchableOpacity onPress={handleSignUp} disabled={isPressed} className={`mt-4 bg-${isPressed ? 'white' : '[#00CCBB]'} w-32 p-2 mb-5 rounded-lg`}>
                     <Text className={`text-${isPressed ? '[#00CCBB]' : 'white'} text-center text-lg`}>
                         {isPressed ? 'Singning you in..' : "Let's Go"}
                     </Text>
@@ -89,20 +90,12 @@ const SignUpPage = () => {
                     <Text className='text-[#00CCBB] text-xl font-bold'>OR</Text>
 
                     {/* Login option */}
-                    <View className='flex-row w-72 justify-evenly items-center gap-2'>
-                        <TouchableOpacity onPress={() => navigation.navigate('LoginPage')} disabled={isPressed} className={`mt-4 bg-${isPressed ? '[#00CCBB]' : 'white'} w-32 p-2 mb-10 rounded-lg`}>
+                        <TouchableOpacity onPress={() => navigation.navigate('LoginPage')} disabled={isPressed} className={` bg-${isPressed ? '[#00CCBB]' : 'white'} w-32 p-2 mb-5 rounded-lg`}>
                             <Text className={`text-${isPressed ? 'white' : '[#00CCBB]'} text-center font-bold text-2xl`}>
                                 Log In
                             </Text>
                         </TouchableOpacity>
-
-                        {/* <TouchableOpacity>
-                            <Image source={require('../../assets/images/googleLogo.jpg')} className='h-12 w-12 rounded-full' />
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('LoginPage')}>
-                            <Image source={require('../../assets/images/dialerLogo.jpg')} className='h-12 w-12 rounded-full' />
-                        </TouchableOpacity> */}
-                    </View>
+                    
 
                 </View>
             </View>

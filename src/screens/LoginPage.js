@@ -76,7 +76,7 @@ const LoginPage = () => {
             <View className='flex-1 justify-center items-center'>
                 {/* Welcome tag line */}
                 <Text className='text-gray-400 font-bold text-center pb-2'>
-                    Welcome to <Text className='text-[#00CCBB]'>Spedy Eats</Text> Exciting tastes await, just a click away
+                    Welcome to <Text className='text-[#00CCBB]'>Snap Savor</Text> Exciting tastes await, just a click away
                 </Text>
                 {/* Logo */}
                 <Image source={require('../../assets/images/delivery.jpg')} className='h-72 w-72 rounded-full ' />

@@ -12,6 +12,7 @@ import SearchModal from '../components/SearchModal'
 import { ArrowRightCircleIcon } from 'react-native-heroicons/solid'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { localHost } from '../../helper'
+import { FlatList } from 'react-native'
 
 const HomeScreen = () => {
   const [error, setError] = useState(null);
@@ -28,6 +29,17 @@ const HomeScreen = () => {
 
   // For storing the restaurant info
   const [restaurants, setResturants] = useState([]);
+
+  const renderFeaturedRow = ({ item }) => (
+    <FeaturedRow
+      key={item._id}
+      id={item._id}
+      title={item.name}
+      description={item.short_description}
+    />
+  );
+
+
 
   const handleSearch = async () => {
     setPressed(!pressed);
@@ -58,32 +70,30 @@ const HomeScreen = () => {
   )
 
   useEffect(() => {
-    (async () => {
+    const fetchLocation = async () => {
       try {
-        // asking user for location persmissions
         let { status } = await Location.requestForegroundPermissionsAsync();
-        if (status == 'granted') {
+        if (status === 'granted') {
           let location = await Location.getCurrentPositionAsync({});
           setLocation(location);
 
-          // using reverse geocoding api to get address from coordinates
           let reverseGeocode = await Location.reverseGeocodeAsync({
             latitude: location.coords.latitude,
-            longitude: location.coords.longitude
+            longitude: location.coords.longitude,
           });
-          // console.log(reverseGeocode);
+
           if (reverseGeocode && reverseGeocode.length > 0) {
             setAddress(reverseGeocode[0]);
           }
         }
+      } catch (err) {
+        console.error(err.message);
       }
-      catch (err) {
-        console.log(err.message);
-      }
-    })
-      ();
+    };
 
-  }, [])
+    fetchLocation();
+  }, []);
+
 
   // useEffect works when the component is loading
   useEffect(() => {
@@ -105,19 +115,19 @@ const HomeScreen = () => {
   console.log(address);
   // console.log(featuredCategory);
 
-  const closeModal = ()=>{
+  const closeModal = () => {
     navigation.navigate('HomeScreen');
     // setError(!null);
     setPressed(false);
   }
 
-  const userProfile = async()=>{
-        navigation.navigate('UserProfileScreen');
-        // const phone = await AsyncStorage.getItem('userPhone');
-        // const response = await axios.get(`http://192.168.50.87:5001/api/users/info?query=${phone}`);
-        // console.log(response);
-        // await AsyncStorage.setItem('userName', response.data.userName);
-        // const response = await axios.get(`http://192.168.67.51:5001/api/search/restaurants?query=${search}`)
+  const userProfile = async () => {
+    navigation.navigate('UserProfileScreen');
+    // const phone = await AsyncStorage.getItem('userPhone');
+    // const response = await axios.get(`http://192.168.50.87:5001/api/users/info?query=${phone}`);
+    // console.log(response);
+    // await AsyncStorage.setItem('userName', response.data.userName);
+    // const response = await axios.get(`http://192.168.67.51:5001/api/search/restaurants?query=${search}`)
   }
 
 
@@ -129,7 +139,7 @@ const HomeScreen = () => {
       <SafeAreaView className="bg-white pt-2">
 
         {/* Search Modal */}
-        <SearchModal visible={(error == null && pressed)} data={restaurants} onClose={closeModal}/>
+        <SearchModal visible={(error == null && pressed)} data={restaurants} onClose={closeModal} />
 
         {/* Header */}
 
@@ -170,27 +180,20 @@ const HomeScreen = () => {
 
         {/* Body */}
 
-        <ScrollView
-          showsVerticalScrollIndicator={false}
-          className='bg-gray-100'
+       
+        <FlatList
+          data={featuredCategory} // The data for the FlatList
+          keyExtractor={(item) => item._id} // Extracting a unique key for each item
+          renderItem={renderFeaturedRow} // Function to render each item
           contentContainerStyle={{
             paddingBottom: 140,
-          }}>
-
-          {/* Categories component */}
-
-          <Categories />
-
-          {/* Featured row */}
-          {featuredCategory?.map((category) => (
-            <FeaturedRow
-              key={category._id}
-              id={category._id}
-              title={category.name}
-              description={category.short_description} />
-          )
-          )}
-        </ScrollView>
+          }}
+          showsVerticalScrollIndicator={false} // Hides the vertical scroll indicator
+          ListHeaderComponent={<Categories />} // Add the Categories component as the header
+          ListHeaderComponentStyle={{
+            backgroundColor: 'gray-100',
+          }}
+        />
 
       </SafeAreaView>
     )
@@ -200,7 +203,7 @@ const HomeScreen = () => {
       <SafeAreaView className="bg-white pt-2">
 
         {/* Search Modal */}
-        <SearchModal visible={(error == null && pressed)} data={restaurants} onClose={closeModal}/>
+        <SearchModal visible={(error == null && pressed)} data={restaurants} onClose={closeModal} />
 
         {/* Header */}
 
