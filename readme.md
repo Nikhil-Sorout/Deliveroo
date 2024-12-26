@@ -27,6 +27,7 @@ Speedy Eats is a food delivery application that aims to provide users with a sea
 - Navigate to the frontend directory: `cd ../frontend`
 - Install frontend dependencies: `npm install`
 - Start the frontend development server: `npm start`
+- Make sure to update the IPv4 address of your local machine in helper.js 
 
 ## Usage
 
@@ -35,7 +36,7 @@ Speedy Eats is a food delivery application that aims to provide users with a sea
 - Search for restaurants, browse menus, and add items to your cart.
 - Proceed to checkout and complete your order.
 - Contribution Guidelines
-- Contributions to Speedy Eats are welcome! If you'd like to contribute, please follow these steps:
+- Contributions to Deliveroo are welcome! If you'd like to contribute, please follow these steps:
 
 ### Fork the repository.
 
