@@ -7,7 +7,7 @@ Deliveroo is a food delivery application that aims to provide users with a seaml
 - Backend: Node.js, Express.js, MongoDB
 - Frontend: React Native, Axios, Redux
 - Content Management: Sanity.io
-- Other: Fetch API
+- Other: REST API
 
 ## Features
 
