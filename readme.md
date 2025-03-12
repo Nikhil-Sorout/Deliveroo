@@ -1,6 +1,6 @@
-# Speedy Eats
+# Deliveroo
 
-Speedy Eats is a food delivery application that aims to provide users with a seamless experience for ordering food from various restaurants. The application includes features such as signup, login, restaurant search, menu browsing, adding items to the cart, and location-based services.
+Deliveroo is a food delivery application that aims to provide users with a seamless experience for ordering food from various restaurants. The application includes features such as signup, login, restaurant search, menu browsing, adding items to the cart, and location-based services.
 
 ## Technologies Used
 
