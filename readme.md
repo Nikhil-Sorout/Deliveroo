@@ -1,6 +1,6 @@
 # Deliveroo
 
-Deliveroo is a food delivery application that aims to provide users with a seamless experience for ordering food from various restaurants. The application includes features such as signup, login, restaurant search, menu browsing, adding items to the cart, and location-based services.
+Deliveroo is a cutting-edge food delivery application designed to offer users a seamless and convenient experience when ordering from a diverse range of restaurants. With an intuitive interface and powerful features, the app ensures a smooth journey from discovery to delivery.
 
 ## Technologies Used
 
